@@ -1,0 +1,8 @@
+[
+{
+  "directory": "D:/projects/practice2024/build",
+  "command": "C:\\msys64\\mingw64\\bin\\c++.exe -g -o CMakeFiles\\Cards.dir\\main.cpp.obj -c D:\\projects\\practice2024\\main.cpp",
+  "file": "D:\\projects\\practice2024\\main.cpp",
+  "output": "CMakeFiles\\Cards.dir\\main.cpp.obj"
+}
+]

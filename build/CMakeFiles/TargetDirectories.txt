@@ -1,0 +1,3 @@
+D:/projects/practice2024/build/CMakeFiles/Cards.dir
+D:/projects/practice2024/build/CMakeFiles/edit_cache.dir
+D:/projects/practice2024/build/CMakeFiles/rebuild_cache.dir
