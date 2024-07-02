@@ -566,3 +566,151 @@ events:
       
       
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CheckTypeSize.cmake:250 (check_include_file)"
+      - "build/_deps/sfml-src/cmake/Config.cmake:10 (check_type_size)"
+      - "build/_deps/sfml-src/CMakeLists.txt:34 (include)"
+    checks:
+      - "Looking for sys/types.h"
+    directories:
+      source: "D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-qnnt8b"
+      binary: "D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-qnnt8b"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "13.0"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "D:/projects/practice2024/build/_deps/sfml-src/cmake/CompilerOptionsOverride.cmake"
+    buildResult:
+      variable: "HAVE_SYS_TYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-qnnt8b'
+        
+        Run Build Command(s): C:/msys64/mingw64/bin/ninja.exe -v cmTC_4d31d
+        [1/2] C:\\msys64\\mingw64\\bin\\cc.exe    -o CMakeFiles/cmTC_4d31d.dir/CheckIncludeFile.c.obj -c D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-qnnt8b/CheckIncludeFile.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\cc.exe   CMakeFiles/cmTC_4d31d.dir/CheckIncludeFile.c.obj -o cmTC_4d31d.exe -Wl,--out-implib,libcmTC_4d31d.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CheckTypeSize.cmake:251 (check_include_file)"
+      - "build/_deps/sfml-src/cmake/Config.cmake:10 (check_type_size)"
+      - "build/_deps/sfml-src/CMakeLists.txt:34 (include)"
+    checks:
+      - "Looking for stdint.h"
+    directories:
+      source: "D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-6nhj9x"
+      binary: "D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-6nhj9x"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "13.0"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "D:/projects/practice2024/build/_deps/sfml-src/cmake/CompilerOptionsOverride.cmake"
+    buildResult:
+      variable: "HAVE_STDINT_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-6nhj9x'
+        
+        Run Build Command(s): C:/msys64/mingw64/bin/ninja.exe -v cmTC_2a619
+        [1/2] C:\\msys64\\mingw64\\bin\\cc.exe    -o CMakeFiles/cmTC_2a619.dir/CheckIncludeFile.c.obj -c D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-6nhj9x/CheckIncludeFile.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\cc.exe   CMakeFiles/cmTC_2a619.dir/CheckIncludeFile.c.obj -o cmTC_2a619.exe -Wl,--out-implib,libcmTC_2a619.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CheckTypeSize.cmake:252 (check_include_file)"
+      - "build/_deps/sfml-src/cmake/Config.cmake:10 (check_type_size)"
+      - "build/_deps/sfml-src/CMakeLists.txt:34 (include)"
+    checks:
+      - "Looking for stddef.h"
+    directories:
+      source: "D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-tt1xr2"
+      binary: "D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-tt1xr2"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "13.0"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "D:/projects/practice2024/build/_deps/sfml-src/cmake/CompilerOptionsOverride.cmake"
+    buildResult:
+      variable: "HAVE_STDDEF_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-tt1xr2'
+        
+        Run Build Command(s): C:/msys64/mingw64/bin/ninja.exe -v cmTC_31eb8
+        [1/2] C:\\msys64\\mingw64\\bin\\cc.exe    -o CMakeFiles/cmTC_31eb8.dir/CheckIncludeFile.c.obj -c D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-tt1xr2/CheckIncludeFile.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\cc.exe   CMakeFiles/cmTC_31eb8.dir/CheckIncludeFile.c.obj -o cmTC_31eb8.exe -Wl,--out-implib,libcmTC_31eb8.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CheckTypeSize.cmake:146 (try_compile)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CheckTypeSize.cmake:271 (__check_type_size_impl)"
+      - "build/_deps/sfml-src/cmake/Config.cmake:10 (check_type_size)"
+      - "build/_deps/sfml-src/CMakeLists.txt:34 (include)"
+    checks:
+      - "Check size of void*"
+    directories:
+      source: "D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-w8fboi"
+      binary: "D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-w8fboi"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "13.0"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "D:/projects/practice2024/build/_deps/sfml-src/cmake/CompilerOptionsOverride.cmake"
+    buildResult:
+      variable: "HAVE_SIZEOF_VOID_PTR"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-w8fboi'
+        
+        Run Build Command(s): C:/msys64/mingw64/bin/ninja.exe -v cmTC_2c144
+        [1/2] C:\\msys64\\mingw64\\bin\\cc.exe    -o CMakeFiles/cmTC_2c144.dir/SIZEOF_VOID_PTR.c.obj -c D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-w8fboi/SIZEOF_VOID_PTR.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\cc.exe   CMakeFiles/cmTC_2c144.dir/SIZEOF_VOID_PTR.c.obj -o cmTC_2c144.exe -Wl,--out-implib,libcmTC_2c144.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "build/_deps/sfml-src/src/SFML/Window/CMakeLists.txt:332 (check_include_file)"
+    checks:
+      - "Looking for dinput.h"
+    directories:
+      source: "D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-c91jl7"
+      binary: "D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-c91jl7"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "D:/projects/practice2024/build/_deps/sfml-src/cmake/Modules/"
+      CMAKE_OSX_DEPLOYMENT_TARGET: "13.0"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "D:/projects/practice2024/build/_deps/sfml-src/cmake/CompilerOptionsOverride.cmake"
+    buildResult:
+      variable: "DINPUT_H_FOUND"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-c91jl7'
+        
+        Run Build Command(s): C:/msys64/mingw64/bin/ninja.exe -v cmTC_c83c5
+        [1/2] C:\\msys64\\mingw64\\bin\\cc.exe    -o CMakeFiles/cmTC_c83c5.dir/CheckIncludeFile.c.obj -c D:/projects/practice2024/build/CMakeFiles/CMakeScratch/TryCompile-c91jl7/CheckIncludeFile.c
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\cc.exe   CMakeFiles/cmTC_c83c5.dir/CheckIncludeFile.c.obj -o cmTC_c83c5.exe -Wl,--out-implib,libcmTC_c83c5.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+...
