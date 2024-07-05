@@ -84,7 +84,7 @@ bool edit(const std::string& key, const std::string& content1, const std::string
     return output;
 }
 
-int main()
+int main1()
 {
     int r = writeToFile("ошибка", "error");
     std::cout << r << std::endl;
@@ -95,23 +95,55 @@ int main()
     return 0;
 }
 
-int main1()
-{
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+int main() {
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Buttons Example", sf::Style::Titlebar | sf::Style::Close);
 
-    while (window.isOpen())
-    {
+    // Create buttons
+    sf::RectangleShape button1(sf::Vector2f(200, 50));
+    button1.setPosition(50, 50);
+    button1.setFillColor(sf::Color::Green);
+
+    sf::RectangleShape button2(sf::Vector2f(200, 50));
+    button2.setPosition(50, 150);
+    button2.setFillColor(sf::Color::Blue);
+
+    sf::RectangleShape button3(sf::Vector2f(200, 50));
+    button3.setPosition(50, 250);
+    button3.setFillColor(sf::Color::Red);
+
+    sf::RectangleShape exitButton(sf::Vector2f(200, 50));
+    exitButton.setPosition(50, 350);
+    exitButton.setFillColor(sf::Color::White);
+
+    while (window.isOpen()) {
         sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
                 window.close();
+            }
+            if (event.type == sf::Event::MouseButtonPressed) {
+                sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+
+                if (button1.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                    // Button 1 pressed
+                    // Add your code here
+                } else if (button2.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                    // Button 2 pressed
+                    // Add your code here
+                } else if (button3.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                    // Button 3 pressed
+                    // Add your code here
+                } else if (exitButton.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+                    window.close();
+                }
+            }
         }
 
         window.clear();
-        window.draw(shape);
+        window.draw(button1);
+        window.draw(button2);
+        window.draw(button3);
+        window.draw(exitButton);
         window.display();
     }
 
