@@ -1,2 +1,4 @@
 ошибка//error
 книга//volume
+:>B//cat
+>B//cat
