@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <locale>
+#include <codecvt>
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
 
@@ -304,10 +306,13 @@ void mainMenu2(){
                                     t2 ^= 1;
                                     t1 = 0;
                                 }
-                                else if (saveButton.getGlobalBounds().contains(mousePos2.x, mousePos2.y)){
-                                    const std::string s1( textInput1.begin(), textInput1.end() );
-                                    const std::string s2( textInput2.begin(), textInput2.end() );
-                                    int res = writeToFile(s1, s2);
+                                else if (saveButton.getGlobalBounds().contains(mousePos2.x, mousePos2.y) & (textInput1.empty() == 0) & (textInput2.empty() == 0)){
+                                    std::wstring wstr1 = textInput1;
+                                    std::wstring wstr2 = textInput2;
+                                    std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
+                                    std::string str1 = converter.to_bytes(wstr1);
+                                    std::string str2 = converter.to_bytes(wstr2);
+                                    int res = writeToFile(str1, str2);
                                     std::cout << res;
                                     textInput1.clear();
                                     textInput2.clear();
@@ -361,6 +366,173 @@ void mainMenu2(){
                         window.display();
                     }
                 }
+                else if (button2.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
+
+                    std::vector<std::string> words = readFile();
+
+                    sf::Text text1;
+                    text1.setFont(font);
+                    text1.setCharacterSize(24);
+                    text1.setFillColor(sf::Color::White);
+
+                    sf::Text text2;
+                    text2.setFont(font);
+                    text2.setCharacterSize(24);
+                    text2.setFillColor(sf::Color::White);
+
+                    sf::RectangleShape textContainer(sf::Vector2f(340, 48));
+                    textContainer.setFillColor(sf::Color::Black);
+
+                    sf::RectangleShape container(sf::Vector2f(350, 310));
+                    container.setPosition(25, 25);
+                    container.setFillColor(sf::Color::White);
+                    container.setOutlineThickness(2);
+                    container.setOutlineColor(sf::Color::Black);
+
+                    float textHeight = 50;
+                    unsigned int maxVisibleWords = container.getSize().y / textHeight;
+                    unsigned int startIndex = 0;
+
+                    int t1 = 0, t2 = 0;
+                    std::wstring textInput1, textInput2;
+
+                    sf::RectangleShape inputField1(sf::Vector2f(250, 50));
+                    inputField1.setPosition(75, 345);
+                    inputField1.setFillColor(sf::Color::Black);
+
+                    sf::RectangleShape inputField1_1(sf::Vector2f(255, 55));
+                    inputField1_1.setPosition(72.5, 342.5); 
+                    inputField1_1.setFillColor(sf::Color::Black);
+
+                    sf::Text inputText1;
+                    inputText1.setFont(font); 
+                    inputText1.setCharacterSize(20);
+                    inputText1.setPosition(95, 355);
+                    inputText1.setFillColor(sf::Color::White);
+
+                    sf::RectangleShape inputField2(sf::Vector2f(250, 50));
+                    inputField2.setPosition(75, 410);
+                    inputField2.setFillColor(sf::Color::Black);
+
+                    sf::RectangleShape inputField2_2(sf::Vector2f(255, 55));
+                    inputField2_2.setPosition(72.5, 407.5); 
+                    inputField2_2.setFillColor(sf::Color::Black);
+
+                    sf::Text inputText2;
+                    inputText2.setFont(font); 
+                    inputText2.setCharacterSize(20);
+                    inputText2.setPosition(95, 420);
+                    inputText2.setFillColor(sf::Color::White);
+
+                    sf::RectangleShape backButton(sf::Vector2f(100, 50));
+                    backButton.setPosition(150, 500);
+                    backButton.setFillColor(sf::Color::Red);
+
+                    sf::Text backText;
+                    backText.setFont(font);
+                    backText.setString(L"Назад");
+                    backText.setCharacterSize(20);
+                    backText.setFillColor(sf::Color::White);
+                    backText.setPosition(170, 510);
+
+                    while (window.isOpen() & t == 0) {
+                    sf::Event event;
+                    while (window.pollEvent(event)) {
+                        if (event.type == sf::Event::Closed) {
+                            window.close();
+                        }
+                        if (event.type == sf::Event::MouseButtonPressed){
+                            sf::Vector2i mousePos2 = sf::Mouse::getPosition(window);
+                            if (backButton.getGlobalBounds().contains(mousePos2.x, mousePos2.y)){
+                                t = 1;
+                            }
+                            else if (container.getGlobalBounds().contains(mousePos2.x, mousePos2.y)){
+                                int i = (mousePos2.y - 25) / 50 + startIndex;
+                                if(i < words.size() & i >= 0){
+                                    int res = words[i].find("//");
+                                    std::string word1 = words[i].substr(0, res);
+                                    std::string word2 = words[i].substr(res + 2);
+                                    std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
+                                    
+                                    textInput1 = converter.from_bytes(word1);
+                                    textInput2 = converter.from_bytes(word2);
+                                    inputText1.setString(textInput1);
+                                    inputText2.setString(textInput2);
+                                }
+                            }
+                            if (inputField1.getGlobalBounds().contains(mousePos2.x, mousePos2.y)){
+                                t1 ^= 1;
+                                t2 = 0;
+                                }
+                            else if (inputField2.getGlobalBounds().contains(mousePos2.x, mousePos2.y)){
+                                t2 ^= 1;
+                                t1 = 0;
+                            }
+                            else{
+                                t1 = 0;
+                                t2 = 0;
+                            } 
+                        }
+                         
+                        else if (event.type == sf::Event::MouseWheelScrolled) {
+                            if (event.mouseWheelScroll.wheel == sf::Mouse::VerticalWheel) {
+                                if (event.mouseWheelScroll.delta > 0 && startIndex > 0) {
+                                    startIndex--;
+                                } else if (event.mouseWheelScroll.delta < 0 && startIndex < words.size() - maxVisibleWords) {
+                                    startIndex++;
+                                }
+                                std::cout << startIndex << std::endl;
+                            }   
+                        }
+                        if (t1 == 1 & event.type == sf::Event::TextEntered) {
+                                if (event.text.unicode == '\b' && textInput1.size() > 0) {
+                                    textInput1.pop_back(); 
+                                } else if (event.text.unicode != '\b') {
+                                    textInput1 += event.text.unicode; 
+                                }
+                                inputText1.setString(textInput1); 
+                        }            
+                        if (t2 == 1 & event.type == sf::Event::TextEntered) {
+                            if (event.text.unicode == '\b' && textInput2.size() > 0) {
+                                textInput2.pop_back(); 
+                            } else if (event.text.unicode != '\b') {
+                                textInput2 += event.text.unicode; 
+                            }
+                            inputText2.setString(textInput2);                                
+                        }
+                    }
+                    window.clear(sf::Color::White);
+                    window.draw(container);
+                    std::string word1, word2;
+                    int res;
+                    for (unsigned int i = startIndex; i < std::min(startIndex + maxVisibleWords, static_cast<unsigned int>(words.size())); i++) {
+                        res = words[i].find("//");
+                        word1 = words[i].substr(0, res);
+                        word2 = words[i].substr(res + 2);
+                        textContainer.setPosition(30, 30 + (i - startIndex) * 50);
+                        window.draw(textContainer);
+                        text1.setString(sf::String::fromUtf8(word1.begin(), word1.end()));
+                        text1.setPosition(30, 30 + (i - startIndex) * 50 - 5);
+                        window.draw(text1);
+                        text2.setString(sf::String::fromUtf8(word2.begin(), word2.end()));
+                        text2.setPosition(30, 30 + (i - startIndex) * 50 + 20);
+                        window.draw(text2);
+                    }
+                    if(t1 == 1){
+                        window.draw(inputField1_1);
+                    }
+                    window.draw(inputField1);
+                    window.draw(inputText1);
+                    if(t2 == 1){
+                        window.draw(inputField2_2);
+                    }
+                    window.draw(inputField2);
+                    window.draw(inputText2);
+                    window.draw(backButton);
+                    window.draw(backText);
+                    window.display();
+                    }
+                } 
                 else if (exitButton.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
                     window.close();
                 }
@@ -377,6 +549,68 @@ void mainMenu2(){
         window.draw(exitText);
         window.display();
     }
+}
+
+
+int main3() {
+    std::vector<std::string> words = {"Hello", "World", "SFML", "This", "is", "a", "long", "list", "of", "words", "to", "demonstrate", "scrolling"};
+
+    sf::RenderWindow window(sf::VideoMode(400, 600), "Scrolling Words", sf::Style::Default);
+
+    sf::Font font;
+    if (!font.loadFromFile("D:\\projects\\practice2024\\arial.ttf")) {
+        return 1; // Exit if font loading fails
+    }
+
+    sf::Text text;
+    text.setFont(font);
+    text.setCharacterSize(24);
+    text.setFillColor(sf::Color::Black);
+
+    sf::RectangleShape container(sf::Vector2f(350, 400));
+    container.setPosition(25, 100);
+    container.setFillColor(sf::Color::White);
+    container.setOutlineThickness(2);
+    container.setOutlineColor(sf::Color::Black);
+
+    float textHeight = 24;
+    unsigned int maxVisibleWords = container.getSize().y / textHeight;
+    unsigned int startIndex = 0;
+
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                window.close();
+            }
+            // Handle vertical scrolling
+            else if (event.type == sf::Event::MouseWheelScrolled) {
+                if (event.mouseWheelScroll.wheel == sf::Mouse::VerticalWheel) {
+                    if (event.mouseWheelScroll.delta > 0 && startIndex > 0) {
+                        startIndex--;
+                    } else if (event.mouseWheelScroll.delta < 0 && startIndex < words.size() - maxVisibleWords) {
+                        startIndex++;
+                    }
+                    std::cout << startIndex << std::endl;
+                }
+            }
+        }
+
+        window.clear(sf::Color::White);
+
+        window.draw(container);
+
+        for (unsigned int i = startIndex; i < std::min(startIndex + maxVisibleWords, static_cast<unsigned int>(words.size())); i++) {
+            std::cout << words[i] << std::endl;
+            text.setString(words[i]);
+            text.setPosition(50, 100 + (i - startIndex) * textHeight);
+            window.draw(text);
+        }
+
+        window.display();
+    }
+
+    return 0;
 }
  
 int main() {
