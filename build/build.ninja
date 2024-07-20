@@ -57,6 +57,14 @@ build CMakeFiles/Cards.dir/main.cpp.obj: CXX_COMPILER__Cards_unscanned_Debug D$:
   OBJECT_DIR = CMakeFiles\Cards.dir
   OBJECT_FILE_DIR = CMakeFiles\Cards.dir
 
+build CMakeFiles/Cards.dir/functions.cpp.obj: CXX_COMPILER__Cards_unscanned_Debug D$:/projects/practice2024/functions.cpp || cmake_object_order_depends_target_Cards
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\Cards.dir\functions.cpp.obj.d
+  FLAGS = -g
+  INCLUDES = -ID:/projects/practice2024/build/_deps/sfml-src/include
+  OBJECT_DIR = CMakeFiles\Cards.dir
+  OBJECT_FILE_DIR = CMakeFiles\Cards.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Cards
@@ -65,7 +73,7 @@ build CMakeFiles/Cards.dir/main.cpp.obj: CXX_COMPILER__Cards_unscanned_Debug D$:
 #############################################
 # Link the executable bin\Cards.exe
 
-build bin/Cards.exe: CXX_EXECUTABLE_LINKER__Cards_Debug CMakeFiles/Cards.dir/main.cpp.obj | _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a || _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a
+build bin/Cards.exe: CXX_EXECUTABLE_LINKER__Cards_Debug CMakeFiles/Cards.dir/main.cpp.obj CMakeFiles/Cards.dir/functions.cpp.obj | _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a || _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a
   FLAGS = -g
   LINK_LIBRARIES = _deps/sfml-build/lib/libsfml-graphics-s-d.a  _deps/sfml-build/lib/libsfml-window-s-d.a  _deps/sfml-build/lib/libsfml-system-s-d.a  -lopengl32  -lwinmm  -lgdi32  _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Cards.dir

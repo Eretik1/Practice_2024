@@ -10,7 +10,7 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(Cards main.cpp)
+add_executable(Cards main.cpp functions.cpp )
 target_link_libraries(Cards PRIVATE sfml-graphics)
 target_compile_features(Cards PRIVATE cxx_std_17)
 
